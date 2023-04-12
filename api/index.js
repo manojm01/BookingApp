@@ -5,13 +5,17 @@ import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
 import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
+import cookieParser from "cookie-parser";
+
 const app = express();
+app.use(cookieParser())
+
 
 dotenv.config();
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
-    console.log("Connected to mongo");
+    console.log("Connected to Database");
   } catch (error) {
     throw error;
   }
