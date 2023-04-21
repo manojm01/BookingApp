@@ -8,17 +8,23 @@ import {
   faTaxi,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
+import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const Header = ({ type }) => {
+
+  const { user } = useContext(AuthContext);
+  // console.log(user);
+
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
-  const [date, setDate] = useState([
+  const [dates, setDates] = useState([
     {
       startDate: new Date(),
       endDate: new Date(),
@@ -44,9 +50,13 @@ const Header = ({ type }) => {
     });
   };
 
+  const {dispatch} = useContext(SearchContext)
+
   const handleSearch = () => {
-    navigate("/hotels",{state:{destination,date,options}})
+    dispatch({type:"NEW_SEARCH",payload:{destination,dates,options}})
+    navigate("/hotels",{state:{destination,dates,options}})
   }
+
 
   return (
     <div className="header">
@@ -84,7 +94,7 @@ const Header = ({ type }) => {
               Get rewarded for your travels – unlock instant savings of 10% or
               more with a free Lamabooking account
             </p>
-            <button className="headerBtn">Sign in / Register</button>
+           {!user &&  <button className="headerBtn">Sign in / Register</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
@@ -104,17 +114,17 @@ const Header = ({ type }) => {
                   }}
                   className="headerSearchText"
                 >
-                  {`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(
-                    date[0].endDate,
+                  {`${format(dates[0].startDate, "dd/MM/yyyy")} to ${format(
+                    dates[0].endDate,
                     "dd/MM/yyyy"
                   )}`}
                 </span>
                 {openDate && (
                   <DateRange
                     editableDateInputs={true}
-                    onChange={(item) => setDate([item.selection])}
+                    onChange={(item) => setDates([item.selection])}
                     moveRangeOnFirstSelection={false}
-                    ranges={date}
+                    ranges={dates}
                     className="date"
                   />
                 )}
