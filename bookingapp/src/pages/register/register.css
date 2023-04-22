@@ -10,7 +10,9 @@
     flex-direction: column;
     gap: 10px;
   }
-  
+  .lContainer h2{
+    text-align: center;
+  }
   .lInput{
     height: 30px;
     padding: 10px;

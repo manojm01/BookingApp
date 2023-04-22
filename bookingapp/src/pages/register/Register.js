@@ -25,6 +25,7 @@ const Register = () => {
   return (
     <div className="login">
       <div className="lContainer">
+      <h2>Register</h2>
         <input
           type="text"
           placeholder="username"

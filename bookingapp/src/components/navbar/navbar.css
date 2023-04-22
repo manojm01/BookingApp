@@ -16,10 +16,12 @@
 
 .logo{
     font-weight: 500;
+    font-size: 23px;
 }
 .navButton{
     margin-left: 20px;
     border: none;
+    border-radius: 13px;
     padding: 5px 10px;
     cursor: pointer;
     color: #003580;
