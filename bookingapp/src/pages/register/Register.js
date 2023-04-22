@@ -17,7 +17,7 @@ const Register = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const res = await axios.post("/auth/register", credentials);
+    await axios.post("/auth/register", credentials);
     navigate("/login")
   };
 
