@@ -8,7 +8,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Reserve = ({ setOpen, hotelId }) => {
-  const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
+  const { data, loading } = useFetch(`/hotels/room/${hotelId}`);
   const { dates } = useContext(SearchContext);
   const [selectedRooms, setSelectedRooms] = useState([]);
   const navigate = useNavigate();
