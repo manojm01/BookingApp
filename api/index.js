@@ -11,7 +11,6 @@ import cors from "cors";
 const app = express();
 dotenv.config();
 
-let cors = require("cors");
 app.use(cors());
 
 const connect = async () => {
