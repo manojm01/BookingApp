@@ -3,7 +3,7 @@ import "./featured.css";
 
 const Featured = () => {
   const { data, loading } = useFetch(
-    "/hotels/countByCity?cities=berlin,madrid,london"
+    "https://bookmystayapi.onrender.com/api/hotels/countByCity?cities=berlin,madrid,london"
   );
   // console.log(data);
   return (
