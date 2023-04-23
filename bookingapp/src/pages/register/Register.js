@@ -17,7 +17,7 @@ const Register = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    await axios.post("/auth/register", credentials);
+    await axios.post("https://bookmystayapi.onrender.com/api/auth/register", credentials);
     navigate("/login")
   };
 
