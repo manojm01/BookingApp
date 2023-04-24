@@ -30,7 +30,7 @@ const List = () => {
   
   const handleOption = (name,e) => {
     setOptions((prev) => {
-      console.log("prev",prev);
+      // console.log("prev",prev);
       return {
         ...prev,
         [name]: e.target.value,
@@ -41,7 +41,7 @@ const List = () => {
   useEffect(()=>{
     const contextUpdate = () => {
       dispatch({type:"NEW_SEARCH",payload:{destination,dates,options}})
-      console.log("newcontext",dates,destination,options)
+      // console.log("newcontext",dates,destination,options)
     }
     contextUpdate();
   },[dates,destination,options])

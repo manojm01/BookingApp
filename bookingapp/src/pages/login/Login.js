@@ -23,7 +23,7 @@ const Login = () => {
     dispatch({ type: "LOGIN_START" });
     try {
       const res = await axios.post("https://bookmystayapi.onrender.com/api/auth/login", credentials);
-      console.log(res);
+      // console.log(res);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       navigate("/")
     } catch (err) {
