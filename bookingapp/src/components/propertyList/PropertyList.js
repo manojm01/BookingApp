@@ -21,6 +21,7 @@ const PropertyList = () => {
                 <img
                   src={img}
                   alt=""
+                  style={{width:"100%",height:"150px"}}
                   className="pListImg"
                   loading="lazy" 
                 />
