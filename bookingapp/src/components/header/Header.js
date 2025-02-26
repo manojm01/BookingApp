@@ -22,7 +22,7 @@ const Header = ({ type }) => {
   const { user } = useContext(AuthContext);
   // console.log(user);
 
-  const [destination, setDestination] = useState("");
+  const [destination, setDestination] = useState("London");
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
     {
@@ -103,6 +103,7 @@ const Header = ({ type }) => {
                   placeholder="Where are you going"
                   className="headerSearchInput"
                   onChange={(e)=>setDestination(e.target.value)}
+                  required
                 />
               </div>
               <div className="headerSearchItem">

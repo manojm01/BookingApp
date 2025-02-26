@@ -103,4 +103,4 @@ const Reserve = ({ setOpen, hotelId }) => {
   );
 };
 
-export default Reserve;
+export default React.memo(Reserve);
