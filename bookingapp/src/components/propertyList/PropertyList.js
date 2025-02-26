@@ -22,6 +22,7 @@ const PropertyList = () => {
                   src={img}
                   alt=""
                   className="pListImg"
+                  loading="lazy" 
                 />
                 <div className="pListTitles">
                   <h1>{data[i]?.type}</h1>
