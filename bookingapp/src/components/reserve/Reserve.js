@@ -1,3 +1,4 @@
+import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./reserve.css";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
