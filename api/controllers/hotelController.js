@@ -40,7 +40,10 @@ export const getHotel = async (req, res, next) => {
 };
 export const getHotels = async (req, res, next) => {
   const { min, max, ...others } = req.query;
-  // const dataCount = req.query.limit;
+
+  if (others.city) {
+    others.city = others.city.toLowerCase();
+  }
   try {
     const hotels = await Hotel.find({
       ...others,
